@@ -1,0 +1,17 @@
+#!/bin/sh -e
+sox --combine mix-power \
+"|sox 1.wav -p" \
+"|sox 2.wav -p bass +3 delay 3:30 3:30" \
+"|sox 3.wav -p tempo 1.11 delay 7:00.3 7:00.3" \
+"|sox 4.wav -p gain +2 tempo 1.127 delay 9:17.1 9:17.1" \
+"|sox 5.wav -p bass +1 tempo 1.1 delay 12:15.82 12:15.82" \
+"|sox 6.wav -p bass +4 tempo 1.06 delay 14:47.05 14:47.05" \
+"|sox 7.wav -p tempo 1.013 delay 17:22.21 17:22.21" \
+"|sox 8.wav -p bass +3 delay 20:48.6 20:48.6" \
+"|sox 9.wav -p delay 23:42.2 23:42.2" \
+"|sox a.wav -p bass +3 delay 24:53.6 24:53.6" \
+"|sox b.wav -p tempo 1.051 delay 27:52.13 27:52.13" \
+mix.flac
+
+ecasound -i mix.flac -o null -ev
+# ecasound -f:24,2,44100 -i mix.flac -o final-mix.flac -ea:XXX
